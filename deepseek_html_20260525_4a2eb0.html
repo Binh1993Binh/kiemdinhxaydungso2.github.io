@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>TV2 | Tư vấn - Kiểm định - Xây dựng Số 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header */
+        .navbar {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(0px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e3c72, #2b4c7c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+        .logo p {
+            font-size: 0.7rem;
+            color: #475569;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e293b;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #2c5f8a;
+        }
+        .contact-btn {
+            background: #1e3c72;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .contact-btn:hover {
+            background: #0f2b4f;
+        }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(105deg, #ffffff 0%, #f1f5f9 100%);
+            padding: 3rem 0 4rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-badge {
+            background: #dbeafe;
+            color: #1e3c72;
+            font-weight: 600;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #0c4a6e;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 2rem;
+            max-width: 90%;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .stat {
+            text-align: left;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #1e3c72;
+        }
+        .hero-image {
+            flex: 0.8;
+            background: #e9f0f9;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.05);
+        }
+        .hero-image i {
+            font-size: 5rem;
+            color: #2c5f8a;
+        }
+
+        /* section chung */
+        section {
+            padding: 4rem 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #2c5f8a;
+            border-radius: 3px;
+        }
+        .section-sub {
+            color: #475569;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+            border: 1px solid #eef2f6;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.08);
+            border-color: #cbd5e1;
+        }
+        .card-icon {
+            font-size: 2rem;
+            color: #2c5f8a;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .badge {
+            background: #eef2ff;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #1e3c72;
+        }
+        .equip-list {
+            columns: 2;
+            column-gap: 1.5rem;
+            list-style: none;
+        }
+        .equip-list li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .equip-list i {
+            color: #2c5f8a;
+            font-size: 0.75rem;
+        }
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .staff-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .staff-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .staff-role {
+            font-size: 0.8rem;
+            color: #2c5f8a;
+            font-weight: 500;
+            margin: 4px 0;
+        }
+        .table-projects {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .table-projects th, .table-projects td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .table-projects th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        .contact-info {
+            background: #0f2b4f;
+            color: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                max-width: 100%;
+            }
+            .equip-list {
+                columns: 1;
+            }
+            .table-projects {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        .btn-outline-light {
+            border: 1px solid rgba(255,255,255,0.4);
+            background: transparent;
+            padding: 10px 20px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .btn-outline-light:hover {
+            background: white;
+            color: #0f2b4f;
+        }
+        .highlight {
+            background: #eef2ff;
+            border-left: 4px solid #2c5f8a;
+            padding: 1rem;
+            border-radius: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <h1>TV2 <span style="font-weight:400">CONSULTING</span></h1>
+            <p>Tư vấn - Kiểm định - Xây dựng Số 2</p>
+        </div>
+        <div class="nav-links">
+            <a href="#about">Giới thiệu</a>
+            <a href="#capability">Năng lực</a>
+            <a href="#projects">Dự án</a>
+            <a href="#contact" class="contact-btn">Liên hệ</a>
+        </div>
+    </div>
+</div>
+
+<header class="hero">
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <span class="hero-badge"><i class="fas fa-flask"></i> LAS-XD 17.001 • ISO 17025:2017</span>
+            <h1>Kiểm định chất lượng<br>vững bền công trình</h1>
+            <p>Hơn 15 năm kinh nghiệm trong lĩnh vực thí nghiệm vật liệu xây dựng, kiểm định chất lượng công trình dân dụng, giao thông, thủy lợi.</p>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number">1000+</span><br>Mẫu thử/năm</div>
+                <div class="stat"><span class="stat-number">19+</span><br>Dự án tiêu biểu</div>
+                <div class="stat"><span class="stat-number">6</span><br>Chuyên gia giàu kinh nghiệm</div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <i class="fas fa-hard-hat"></i>
+            <i class="fas fa-chart-line" style="margin-left: 20px;"></i>
+            <i class="fas fa-microscope" style="margin-left: 20px;"></i>
+            <p style="margin-top: 1rem; font-weight: 500;">Phòng thí nghiệm đạt chuẩn</p>
+        </div>
+    </div>
+</header>
+
+<div class="container" id="about">
+    <section>
+        <h2 class="section-title">Về chúng tôi</h2>
+        <div class="section-sub">Công ty TNHH Tư vấn – Kiểm định – Xây dựng Số 2 (TV2) được thành lập năm 2007, tự hào là đơn vị uy tín tại khu vực Tây Nguyên và miền Trung.</div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-building"></i></div>
+                <h3>Thông tin doanh nghiệp</h3>
+                <p>MST: 6400032920<br>Vốn điều lệ: 1,5 tỷ đồng<br>Địa chỉ: Đường Lê Thánh Tông, tổ 2, phường Đông Gia Nghĩa, Lâm Đồng.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-certificate"></i></div>
+                <h3>Chứng nhận & năng lực</h3>
+                <p>Phòng thí nghiệm LAS-XD 17.001 (Sở Xây dựng Đắk Nông cấp 10/7/2024). Hệ thống quản lý chất lượng theo TCVN ISO/IEC 17025:2017.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-tasks"></i></div>
+                <h3>Lĩnh vực hoạt động</h3>
+                <p>Thí nghiệm vật liệu xây dựng, kiểm định chất lượng công trình dân dụng, công nghiệp, giao thông, thủy lợi, hạ tầng kỹ thuật.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="capability">
+        <h2 class="section-title">Năng lực thí nghiệm</h2>
+        <div class="section-sub">Danh mục chỉ tiêu thử nghiệm đa dạng, đáp ứng các tiêu chuẩn trong nước và quốc tế (TCVN, ASTM, BS EN, AASHTO, JIS).</div>
+        <div class="cards-grid">
+            <div class="card"><i class="fas fa-cube card-icon"></i><h3>Vật liệu xây dựng cơ bản</h3><div class="badge-list"><span class="badge">Xi măng</span><span class="badge">Cốt liệu</span><span class="badge">Bê tông & vữa</span><span class="badge">Gạch các loại</span></div><p>Xác định độ mịn, cường độ nén/uốn, thành phần hạt, độ sụt, khối lượng thể tích, độ hút nước, cường độ chịu nén mẫu bê tông...</p></div>
+            <div class="card"><i class="fas fa-road card-icon"></i><h3>Kết cấu áo đường & nhựa</h3><div class="badge-list"><span class="badge">Bê tông nhựa</span><span class="badge">Nhựa bitum</span><span class="badge">CBR</span></div><p>Thí nghiệm Marshall, độ kim lún, độ kéo dài, độ ổn định còn lại, hàm lượng nhựa chiết ly tâm, CBR phòng và hiện trường.</p></div>
+            <div class="card"><i class="fas fa-mountain card-icon"></i><h3>Đất, nền móng & vật liệu gia cố</h3><div class="badge-list"><span class="badge">Khối lượng riêng</span><span class="badge">Giới hạn Atterberg</span><span class="badge">Nén lún</span><span class="badge">Đầm nén Proctor</span></div><p>Xác định độ chặt tiêu chuẩn, CBR, sức chống cắt, hệ số thấm, độ ẩm hiện trường bằng dao đai, rót cát.</p></div>
+            <div class="card"><i class="fas fa-microscope card-icon"></i><h3>Thí nghiệm hiện trường & chuyên sâu</h3><div class="badge-list"><span class="badge">Siêu âm bê tông</span><span class="badge">Súng bật nảy</span><span class="badge">Benkelman</span><span class="badge">Điện trở đất</span></div><p>Đánh giá cường độ bê tông không phá hủy, đo modul đàn hồi mặt đường, độ bằng phẳng, độ thấm nước hiện trường.</p></div>
+        </div>
+        <div class="highlight" style="margin-top: 2rem;">
+            <i class="fas fa-chart-simple"></i> <strong>Tiêu chuẩn áp dụng phong phú:</strong> TCVN, ASTM C33/C39/C131, AASHTO T96/T27, BS EN 12390, JIS R5201, hơn 300 chỉ tiêu thí nghiệm với độ chính xác cao.
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Trang thiết bị hiện đại</h2>
+        <div class="section-sub">Hệ thống máy móc nhập khẩu từ Trung Quốc, Nhật Bản, Mỹ, Ý, Hàn Quốc và thiết bị nội địa chất lượng cao.</div>
+        <div class="cards-grid">
+            <div class="card">
+                <h3><i class="fas fa-weight-hanging"></i> Máy kiểm tra cơ lý</h3>
+                <ul class="equip-list">
+                    <li><i class="fas fa-check-circle"></i> Máy nén TYA 2000kN</li>
+                    <li><i class="fas fa-check-circle"></i> Máy uốn kéo nén vạn năng 1000kN</li>
+                    <li><i class="fas fa-check-circle"></i> Máy nén Marshall & CBR</li>
+                    <li><i class="fas fa-check-circle"></i> Máy mài mòn Los Angeles</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-ruler-combined"></i> Thiết bị chuyên dụng</h3>
+                <ul class="equip-list">
+                    <li><i class="fas fa-check-circle"></i> Máy siêu âm bê tông (Ý)</li>
+                    <li><i class="fas fa-check-circle"></i> Súng bật nảy bê tông</li>
+                    <li><i class="fas fa-check-circle"></i> Tủ sấy 300°C, tủ nung 1200°C</li>
+                    <li><i class="fas fa-check-circle"></i> Bộ đo nhiệt độ hóa mềm nhựa, máy đo kim lún</li>
+                    <li><i class="fas fa-check-circle"></i> Cần Benkelman, tấm ép cứng, dao đai ITST</li>
+                </ul>
+            </div>
+        </div>
+        <div class="badge-list" style="margin-top: 1rem;"><span class="badge">>103 thiết bị đồng bộ</span><span class="badge">Cân phân tích 0,1mg</span><span class="badge">Máy khoan bê tông Hàn Quốc</span></div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Đội ngũ nhân sự</h2>
+        <div class="section-sub">Trưởng phòng và thí nghiệm viên giàu kinh nghiệm, được đào tạo bài bản, chứng chỉ quản lý phòng thí nghiệm và thí nghiệm không phá hủy.</div>
+        <div class="staff-grid">
+            <div class="staff-card"><div class="staff-name">Hồ Sỹ Hoàng</div><div class="staff-role">Trưởng phòng / Giám đốc</div><div style="font-size:0.75rem">KS Xây dựng, nhiều chứng chỉ thí nghiệm Vật liệu, đất, không phá hủy</div></div>
+            <div class="staff-card"><div class="staff-name">Huỳnh Thanh Tuấn</div><div class="staff-role">Thí nghiệm viên</div><div style="font-size:0.75rem">Bằng nghề đường ô tô, chứng chỉ đất, đo điện trở chống sét</div></div>
+            <div class="staff-card"><div class="staff-name">Hoàng Đình Toàn</div><div class="staff-role">Thí nghiệm viên</div><div style="font-size:0.75rem">Chứng chỉ đất, thí nghiệm viên không phá hủy</div></div>
+            <div class="staff-card"><div class="staff-name">Nguyễn Thanh Bình</div><div class="staff-role">Thí nghiệm viên</div><div style="font-size:0.75rem">Chứng chỉ VLXD, đất xây dựng, giao thông</div></div>
+            <div class="staff-card"><div class="staff-name">Nguyễn Ngọc Quân</div><div class="staff-role">Thí nghiệm viên</div><div style="font-size:0.75rem">Chứng chỉ Vật liệu công trình giao thông</div></div>
+            <div class="staff-card"><div class="staff-name">Hồ Sỹ Trọng</div><div class="staff-role">Thí nghiệm viên</div><div style="font-size:0.75rem">Sơ cấp nghề thí nghiệm xây dựng</div></div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Dự án tiêu biểu</h2>
+        <div class="section-sub">TV2 đã thực hiện công tác thí nghiệm kiểm soát chất lượng cho nhiều công trình trọng điểm tại Đắk Nông, Lâm Đồng và khu vực Tây Nguyên.</div>
+        <div style="overflow-x: auto;">
+            <table class="table-projects">
+                <thead>
+                    <tr><th>STT</th><th>Tên công trình / dự án</th><th>Đơn vị thi công</th><th>Năm</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Trụ sở Đảng ủy, HĐND, UBND phường Nghĩa Đức, TP. Gia Nghĩa</td><td>Công ty TNHH MTV Xây dựng Trung Hoa</td><td>2022</td></tr>
+                    <tr><td>2</td><td>Xây dựng Trụ sở và kho lưu trữ Văn phòng đăng ký đất đai tỉnh Đắk Nông</td><td>Công ty CP Đầu tư XD Trần Phú</td><td>2022</td></tr>
+                    <tr><td>3</td><td>Đường từ ngã tư đường tránh đi khu di tích lịch sử Quốc gia (giai đoạn 1)</td><td>Công ty TNHH Phú Sơn, Triệu Sơn</td><td>2022</td></tr>
+                    <tr><td>4</td><td>Khu di tích lịch sử Quốc gia địa điểm bất liên lạc khai thông đường HCM</td><td>Liên danh Trung Hoa & Toàn Thịnh Phát</td><td>2023</td></tr>
+                    <tr><td>5</td><td>Nâng cấp, sửa chữa đường liên xã Quảng Sơn - Đắk R'măng</td><td>Cty Đầu tư XD Tân Lê Hải</td><td>2023</td></tr>
+                    <tr><td>6</td><td>Trường TH&THCS Vừ A Dinh - Xây mới 14 phòng học</td><td>Liên danh Hồng Vinh & Hùng Nam Sơn</td><td>2024</td></tr>
+                    <tr><td>7</td><td>Dự án SACCR tỉnh Đắk Nông (chống chịu biến đổi khí hậu)</td><td>Công ty TNHH Phú Sơn</td><td>2025</td></tr>
+                    <tr><td>8</td><td>Hồ suối 38, tỉnh Đắk Nông</td><td>Tổng Công ty CP XDNN & PTNT Thanh Hóa</td><td>2023</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="highlight" style="margin-top: 1.5rem;"><i class="fas fa-clipboard-list"></i> Và nhiều công trình giao thông, thủy lợi, dân dụng khác trên địa bàn tỉnh Lâm Đồng, Đắk Nông.</div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-info">
+            <div>
+                <h3 style="color:white; font-size: 1.5rem;">CÔNG TY TNHH TƯ VẤN – KIỂM ĐỊNH – XÂY DỰNG SỐ 2</h3>
+                <p style="margin-top: 0.5rem;"><i class="fas fa-map-marker-alt"></i> Đường Lê Thánh Tông, tổ 2, phường Đông Gia Nghĩa, tỉnh Lâm Đồng</p>
+                <p><i class="fas fa-phone-alt"></i> 0946.04.37.37 (Hotline) / 0915.991.632</p>
+                <p><i class="fas fa-envelope"></i> congtytuvan2@gmail.com</p>
+                <p><i class="fas fa-building"></i> MST: 6400032920 (Sở KH&ĐT Đắk Nông cấp lần đầu 16/4/2007)</p>
+            </div>
+            <div>
+                <a href="mailto:congtytuvan2@gmail.com" class="btn-outline-light"><i class="fas fa-paper-plane"></i> Gửi yêu cầu báo giá</a>
+                <p style="margin-top: 12px; font-size:0.8rem;">Chúng tôi sẵn sàng hợp tác, đồng hành cùng quý khách hàng.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>© 2026 Công ty TNHH Tư vấn – Kiểm định – Xây dựng Số 2 | Phòng thí nghiệm LAS-XD 17.001 được công nhận đủ điều kiện hoạt động thí nghiệm chuyên ngành xây dựng.</p>
+    <p style="margin-top: 0.5rem;">Thông tin công bố theo Nghị định 62/2016/NĐ-CP, Nghị định 14/2026/NĐ-CP. Chịu trách nhiệm trước pháp luật về tính chính xác của nội dung.</p>
+</footer>
+</body>
+</html>
